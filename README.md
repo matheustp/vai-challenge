@@ -16,6 +16,8 @@ docker-compose -f docker-compose.yaml up --build -d
 ```
 
 ## How to use the API
+By default, the application is listening on port **3000**.
+
 The API has the following routes:
 
 POST - /complexity
