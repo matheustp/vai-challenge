@@ -22,7 +22,7 @@ The API has the following routes:
 
 POST - /complexity
 
-Which receives a JSON as the request body with the field 'text', as example:
+Which receives a JSON as the request body with the field 'text', for example:
 
 ```json
 {
@@ -34,7 +34,7 @@ POST - /non-lexical-word
 
 This route requires an header called `x-api-key` the value should be the same as the API_KEY environment variable set on the container.
 
-The request body should be a JSON with the field 'word', as example:
+The request body should be a JSON with the field 'word', for example:
 ```json
 {
   "word": "test"
