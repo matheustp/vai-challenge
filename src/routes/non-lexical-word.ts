@@ -1,11 +1,6 @@
 import express, { Request, Response } from 'express';
-import { body, header } from 'express-validator';
-import { MaxWordCountValidator} from "../validators/max-word-count-validator";
+import { body } from 'express-validator';
 import { validateRequest } from "../middlewares/validate-request";
-import { RoundToTwo} from "../helpers/round-to-two";
-import {CountWords, CountWordsStruct} from "../services/count-words";
-import {DefaultNonLexicalWords} from "../utils/default-non-lexical-words";
-import {NonLexicalWordsService} from "../services/non-lexical-words";
 import {NonLexicalWord} from "../models/non-lexical-word";
 import {requireAuth} from "../middlewares/require-auth";
 
@@ -18,7 +13,7 @@ router.post('/non-lexical-word',
             .trim()
             .notEmpty()
             .withMessage('The word field is required')
-            .matches(/^[a-z]+\-*[a-z]+$/i)
+            .matches(/^[a-z]+-*[a-z]+$/i)
             .withMessage('The word should be a valid word')
     ],
     validateRequest,

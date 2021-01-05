@@ -4,7 +4,6 @@ import { MaxWordCountValidator} from "../validators/max-word-count-validator";
 import { validateRequest } from "../middlewares/validate-request";
 import { RoundToTwo} from "../helpers/round-to-two";
 import {CountWords, CountWordsStruct} from "../services/count-words";
-import {DefaultNonLexicalWords} from "../utils/default-non-lexical-words";
 import {NonLexicalWordsService} from "../services/non-lexical-words";
 
 const router = express.Router();
@@ -15,7 +14,7 @@ router.post('/complexity',
             .trim()
             .notEmpty()
             .withMessage('The text field is required')
-            .matches(/[a-z]/i)
+            .matches(/[a-z|0-9]/i)
             .withMessage('The text should have at least one valid word')
             .isLength({max: 1000})
             .withMessage('The text should have up to 1000 characters')
@@ -30,6 +29,7 @@ router.post('/complexity',
         const nonLexicalWords = await NonLexicalWordsService.fetchAll();
 
         const resultList = (mode === 'verbose' ? text.split('.') : [text])
+            .filter((t:string) => t !== '')
             .map((t:string) => {
               return t
                     .split(' ')

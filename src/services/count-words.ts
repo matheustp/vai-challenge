@@ -6,7 +6,7 @@ export interface CountWordsStruct {
 export class CountWords {
     static count(nonLexicalWords: { [key: string]: 1 }): (p: CountWordsStruct, c: string) => CountWordsStruct {
         return (p: CountWordsStruct, c: string) => {
-            const [sanitizedWord] = c.match(/[a-z]+-*[a-z]*/) || []
+            const [sanitizedWord] = c.match(/[a-z|0-9]+-*[a-z|0-9]*/) || []
             if (!sanitizedWord) {
                 return p;
             }

@@ -1,6 +1,5 @@
 import {app} from './app';
 import mongoose from "mongoose";
-import {DefaultNonLexicalWords} from "./utils/default-non-lexical-words";
 import {NonLexicalWord} from "./models/non-lexical-word";
 import {populateDB} from "./utils/populate-db";
 
