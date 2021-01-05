@@ -28,7 +28,7 @@ router.post('/complexity',
 
         const nonLexicalWords = await NonLexicalWordsService.fetchAll();
 
-        const resultList = (mode === 'verbose' ? text.split('.') : [text])
+        const resultList = (mode === 'verbose' ? text.split('. ') : [text])
             .filter((t:string) => t !== '')
             .map((t:string) => {
               return t
@@ -41,7 +41,6 @@ router.post('/complexity',
             p.lexicalWords += c.lexicalWords
             return p;
         }, {totalWords: 0, lexicalWords: 0});
-
         const result:any = {
             data: {
                 overall_ld: RoundToTwo(overallCount.lexicalWords / (overallCount.totalWords || 1)),
