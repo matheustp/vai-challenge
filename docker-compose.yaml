@@ -12,6 +12,7 @@ services:
     environment:
       - MONGO_URI='mongodb://mongo:27017/vai-challenge'
       - PORT=3000
+      #In a real production repo the key should not be defined in the yaml
       - API_KEY=lMaScshrjA81x89hM1IPx7xVWFa9HWlZ1quUm5xQ
   mongo:
     container_name: mongo

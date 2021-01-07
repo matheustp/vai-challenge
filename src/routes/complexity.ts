@@ -24,7 +24,7 @@ router.post('/complexity',
     async (req: Request, res: Response) => {
         let {text} = req.body;
         const {mode} = req.query;
-        text = text.toLowerCase().replace(/(\r\n|\n|\r|\t)/gm, '');
+        text = text.toLowerCase().replace(/(\r\n|\n|\r|\t)/gm, ' ');
 
         const nonLexicalWords = await NonLexicalWordsService.fetchAll();
 

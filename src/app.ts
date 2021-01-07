@@ -10,6 +10,8 @@ const app = express();
 app.use(json());
 
 app.use(complexityRouter);
+
+//The route to add words should only be available when using MongoDB
 if (process.env.MONGO_URI) {
     app.use(nonLexicalWordRouter);
 }

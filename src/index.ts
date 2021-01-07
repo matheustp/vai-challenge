@@ -5,7 +5,8 @@ import {populateDB} from "./utils/populate-db";
 
 
 const start = async () => {
-
+    //If the is no MONGO_URI defined, the application will run using the in memory array of non-lexical-words
+    // defined in ./src/utils/default-non-lexical-words.ts
     if (process.env.MONGO_URI) {
         if (!process.env.API_KEY) {
             throw new Error('API_KEY environment variable is required when using MongoDB')

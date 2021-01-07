@@ -8,7 +8,7 @@ async function populateDB()  {
             return nonLexicalWord.save();
         }));
     } catch (err) {
-        //Ignore error, its caused by duplicates
+        //Ignore error, in this case its caused by duplicates
     }
 }
 
